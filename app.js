@@ -3,11 +3,11 @@ var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer({ dest: './uploads' });
-// var mongoose = require('mongoose')
+var mongoose = require('mongoose')
 var fs = require('fs');
 
 //connect to mongodb
-/* mongoose.connect('mongodb://localhost:/sample', function(err, db){
+mongoose.connect('mongodb://localhost:/sample', function(err, db){
 	if (err) throw err
 	else console.log('it connected')
 	})
@@ -22,7 +22,7 @@ var fs = require('fs');
 });
 //using personSchema to create person collection
 var Person = mongoose.model("Person", personSchema);
-*/
+
 //setting template engine to html
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
