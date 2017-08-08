@@ -5,12 +5,14 @@ var multer = require('multer');
 var upload = multer({ dest: './uploads' });
 var mongoose = require('mongoose')
 var fs = require('fs');
-
+var uri = "mongodb://heroku_fhgfqzv4:illhcbd073l1skc2vjlm177863@ds125262.mlab.com:25262/heroku_fhgfqzv4"
+mongoose.Promise = global.Promise
 //connect to mongodb
-mongoose.connect('mongodb://localhost:/sample', function(err, db){
-	if (err) throw err
-	else console.log('it connected')
-	})
+mongoose.connect(uri);
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+
 	// creating a new model
 	var personSchema = mongoose.Schema({
    fname: String,
