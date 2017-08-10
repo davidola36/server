@@ -40,15 +40,10 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(upload.array());
 //setting the root directory as views to watch
 app.use(express.static('views'));
-app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
-	console.log("it works");
-});
-/*app.get('/', function(req, res){
+app.get('/', function(req, res){
 	res.render('photosplash');
 		
-});*/
+});
 /*app.post('/submit.html', upload.single('profimage'), function(req, res){
 	//get parsed information
 	var personInfo = req.body;
