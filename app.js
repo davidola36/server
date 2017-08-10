@@ -44,7 +44,7 @@ app.get('/', function(req, res){
 	res.render('photosplash');
 		
 });
-app.post('/submit.html', upload.single('profimage'), function(req, res){
+/*app.post('/submit.html', upload.single('profimage'), function(req, res){
 	//get parsed information
 	var personInfo = req.body;
 	if(!personInfo.lname || !personInfo.fname || !personInfo.num){
@@ -69,5 +69,5 @@ app.post('/submit.html', upload.single('profimage'), function(req, res){
 		   console.log(req.body);
       });
    }
-});
+}); */
 app.listen(5000);
