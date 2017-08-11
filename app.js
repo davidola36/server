@@ -62,11 +62,6 @@ app.post('/submit.html', upload.single('profimage'), function(req, res){
 		 email: personInfo.email,
          num: personInfo.num
       });
-		if(req.file.data){
-			cosole.log("the image has been referenced")
-			}else{
-					console.log("the image has not yet been referenced")
-				}
       newPerson.save(function(err, Person){
          if(err)
             console.log("the file didnt save");
