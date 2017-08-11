@@ -24,7 +24,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 });
 //using personSchema to create person collection
 var Person = mongoose.model("Person", personSchema);
-*/
+
 //setting template engine to html
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
