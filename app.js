@@ -5,14 +5,20 @@ var multer = require('multer');
 var upload = multer({ dest: './uploads' });
 var mongoose = require('mongoose')
 var fs = require('fs');
-var uri = "mongodb://heroku_fhgfqzv4:illhcbd073l1skc2vjlm177863@ds125262.mlab.com:25262/heroku_fhgfqzv4"
-mongoose.Promise = global.Promise
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://davidola36:1cancomea@ds125262.mlab.com:25262/heroku_fhgfqzv4';
 //connect to mongodb
-mongoose.connect(uri);
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-
+ // Makes connection asynchronously.  Mongoose will queue up database
+    // operations and release them when the connection is complete.
+    mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
 	// creating a new model
 	var personSchema = mongoose.Schema({
    fname: String,
