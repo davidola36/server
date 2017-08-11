@@ -3,9 +3,9 @@ var app = express();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer({ dest: './uploads' });
-//var mongoose = require('mongoose')
+var mongoose = require('mongoose')
 var fs = require('fs');
-/*var uri = "mongodb://heroku_fhgfqzv4:illhcbd073l1skc2vjlm177863@ds125262.mlab.com:25262/heroku_fhgfqzv4"
+var uri = "mongodb://heroku_fhgfqzv4:illhcbd073l1skc2vjlm177863@ds125262.mlab.com:25262/heroku_fhgfqzv4"
 mongoose.Promise = global.Promise
 //connect to mongodb
 mongoose.connect(uri);
@@ -44,7 +44,7 @@ app.get('/', function(req, res){
 	res.render('photosplash');
 		
 });
-/*app.post('/submit.html', upload.single('profimage'), function(req, res){
+app.post('/submit.html', upload.single('profimage'), function(req, res){
 	//get parsed information
 	var personInfo = req.body;
 	if(!personInfo.lname || !personInfo.fname || !personInfo.num){
@@ -69,5 +69,5 @@ app.get('/', function(req, res){
 		   console.log(req.body);
       });
    }
-}); */
+}); 
 app.listen(process.env.PORT || 5000);
