@@ -8,7 +8,7 @@ var fs = require('fs');
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://davidola36:1cancomea@ds125262.mlab.com:25262/heroku_fhgfqzv4';
+    'mongodb://davidola36:1cancomea@ds061374.mlab.com:61374/sample';
 ////connect to mongodb
  // Makes connection asynchronously.  Mongoose will queue up database
     // operations and release them when the connection is complete.
