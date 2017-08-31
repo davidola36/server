@@ -1,80 +1,91 @@
 <!doctype html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-<style type="text/css">
-body{background: url(img/background.jpg) no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;}
-
-</style>
+    <style type="text/css">
+        body {
+            background: url(img/background.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
+
 <body>
     <div class="page">
-         <div>
-            <div >  <img src="img/logo.jpg"  class="logo1"/></div>
+        <div>
+            <div> <img src="img/logo.jpg" class="logo1" /></div>
             <div class="nav_bar">
                 <ul>
                     <li class="nav_con"><a href="photosplash.html" class="clr">Home</a></li>
                     <li class="nav_con"><a href="aboutus.html" class="clr">About us</a></li>
-                    <li class="nav_con"><a href="gallery.html" class= "clr gallery">Gallery</a></li>
+                    <li class="nav_con"><a href="gallery.html" class="clr gallery">Gallery</a></li>
                     <li class="nav_con"><a href="thecompetition.html" class="clr comp">The competition</a></li>
                     <li class="nav_con"><a href="submit.html" class="clr submit">Submit entry</a></li>
                     <div class="clar"></div>
-                </ul> 
-            </div>	
-          </div>
-      <br /><br /> <br />
-     
-    
-    
-    	
-            <form id="myForm" onsubmit="return validateForm();" method="POST">
-                <ul class="form-style-1">
-                    <li>
-                        <label>Full Name <span class="required">*</span></label><input type="text" name="fname" id ="fname" class="field-divided" placeholder="First" />&nbsp;<input type="text" name="lname" class="field-divided" id="lname" placeholder="Last" />
-                    </li>
-                    <li>
-                        <label>Email <span class="required">*</span></label>
-                        <input type="email" name="email" id="email" class="field-long" />
-                    </li>
-                    <li>
-                         <label>Phone number <span class="required">*</span></label>
-                        <input type="number" name="num" id="num" class="field-long" />
-                    </li>
-                    
-                    <li>
-                        <input type="file" onchange="previewFile()" name="profimage" /><br>
-                        <img src="" height="200" alt="Image preview..." id="image" >
-                        <p id="write" style="display:;"></p>	  
-                    </li>
-                    <li>
-                        <p id="show"></p>
-                    </li>
-                    <li>
-                        <input type="submit" value="Submit" />
-                    </li>
                 </ul>
-            </form>
-       
+            </div>
+        </div>
+        <br /><br /> <br />
+
+
+
+        <form id="myForm" onsubmit="return validateForm();"  enctype="multipart/form-data" method="POST">
+            <ul class="form-style-1">
+                <li>
+                    <label>Full Name <span class="required">*</span></label><input type="text" name="fname" id="fname" class="field-divided"
+                        placeholder="First" />&nbsp;<input type="text" name="lname" class="field-divided" id="lname" placeholder="Last"
+                    />
+                </li>
+                <li>
+                    <label>Email <span class="required">*</span></label>
+                    <input type="email" name="email" id="email" class="field-long" />
+                </li>
+                <li>
+                    <label>Phone number <span class="required">*</span></label>
+                    <input type="number" name="num" id="num" class="field-long" />
+                </li>
+
+                <li>
+                    <input type="file" onchange="previewFile()" name="image" /><br>
+                    <img src="" height="200" alt="Image preview..." id="image">
+                </li>
+                <li>
+                    <p id="show"></p>
+                </li>
+                <li>
+                    <input type="submit" value="Submit" />
+                </li>
+            </ul>
+        </form>
+
         <br /> <br />
         <div class="footer b_box">
             <div>
-               <ul class="bottom_list2">
-                    <li><p class="b_1 li">Follow Us</p></li>
-                    <li><p class="b_1 social fb li"><a href="http://www.facebook.com/" class="icons social fb"></a></p></li>
-                    <li><p class="b_1 social li tw"><a href="http://www.twitter.com/" class="icons social tw"></a></p></li>
-                    <li><p class="b_1 social li in"><a href="http://www.linkedin.com/" class="icons social in"></a></p></li>
+                <ul class="bottom_list2">
+                    <li>
+                        <p class="b_1 li">Follow Us</p>
+                    </li>
+                    <li>
+                        <p class="b_1 social fb li"><a href="http://www.facebook.com/" class="icons social fb"></a></p>
+                    </li>
+                    <li>
+                        <p class="b_1 social li tw"><a href="http://www.twitter.com/" class="icons social tw"></a></p>
+                    </li>
+                    <li>
+                        <p class="b_1 social li in"><a href="http://www.linkedin.com/" class="icons social in"></a></p>
+                    </li>
                     <div class="clar"></div>
                 </ul>
                 <ul class="bottom_list2">
-                        <li><a href="submit.html" class="b_1 li">Submit entry</a></li>
-                        <li><a href="thecompetition.html" class="b_1 li">The competition</p></li>
+                    <li><a href="submit.html" class="b_1 li">Submit entry</a></li>
+                    <li><a href="thecompetition.html" class="b_1 li">The competition</p></li>
                         <li><a href="gallery.html" class="b_1 li">Gallery</p></li>
                 </ul>
             </div>
@@ -82,7 +93,6 @@ body{background: url(img/background.jpg) no-repeat center center fixed;
       </div>
       <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
       <script src="js/myscript.js"></script>
-      <script src="js/angular.js"></script>
 
 </body>
 

@@ -3,7 +3,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
   routes = require('./controllers/index.js');
-// var multer = require('multer');
+var multer = require('multer');
 // var upload = multer({ dest: './uploads' });
 // var 
 var fs = require('fs');
@@ -29,22 +29,13 @@ mongoose.connect(uristring, function (err, res) {
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-// //defining the path of the image
-// app.use(multer({
-//   dest: './uploads/',
-//   rename: function (fieldname, filename) {
-//     return filename;
-//   },
-// }));
 
-// for parsing application/json
 app.use(bodyParser.json());
 
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true }));
-// for parsing multipart/form-data
-// app.use(upload.array());
-//setting the root directory as views to watch
+
+
 app.use(express.static('views'));
 
 
