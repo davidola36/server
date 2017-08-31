@@ -24,12 +24,15 @@ router.post('/submit.html', upload.single('profimage'), function (req, res) {
             email: personInfo.email,
             num: personInfo.num
         });
-        newPerson.save(function (err, Person) {
-            if (err)
+        newPerson.save(function (err, person_obj) {
+            if (err) {
                 console.log("the file didnt save");
-            else
-                console.log("the file saved");
-            console.log(req.body);
+                res.send({ status: false, message: 'upload failed' })
+            }
+
+            console.log('user saved');
+            console.log(person_obj);
+            res.send(person_obj)
         });
     }
 });
