@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <style type="text/css">
 .home{color:red;}
@@ -14,7 +14,7 @@ body{background-color:#f4f7f6;}
 <body ng-app="myApp">
     <div class="page">
         <div>
-            <div >  <img src="logo.jpg"  class="logo1"/></div>
+            <div >  <img src="img/logo.jpg"  class="logo1"/></div>
             <div class="nav_bar">
                 <ul>
                     <li class="nav_con"><a href="photosplash.html" class="clr home">Home</a></li>
@@ -31,20 +31,20 @@ body{background-color:#f4f7f6;}
         <div class="content ">
             <div class="banner">
                 <div class="mySlides fade">
-                    <img src="image1.jpg" style="width:100%">
+                    <img src="img/image1.jpg" style="width:100%">
                     <div class="text">Caption Text</div>
                  </div>
                  <div class="mySlides fade">     
-                    <img src="image2.jpg" style="width:100%">
+                    <img src="img/image2.jpg" style="width:100%">
                     <div class="text">Caption Two</div>
                  </div>
                   <div class="mySlides fade">  
-                    <img src="image3.jpg" style="width:100%">
+                    <img src="img/image3.jpg" style="width:100%">
                     <div class="text">Caption Three</div>
                 </div>
             </div>
         </div>
-        <br>
+        <br />
         <div style="text-align:center">
           <span class="dot"></span> 
           <span class="dot"></span> 
@@ -57,7 +57,7 @@ body{background-color:#f4f7f6;}
                 <ul ng-repeat="x in ::Json" >
                     <li class="ov_cont b_box">
                         <div class="pic_cont">  
-                            <img src="image2.jpg" class="images" />
+                            <img src="img/image2.jpg" class="images" />
                             <div class="b_white">  
                                 <span class="pad" >{{::x.fname + " " + x.lname}}</span><span class="code">{{::x.email}}</span> <p class="pad">Votes-{{::x.vote}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"/></p> 
                             </div>
@@ -72,7 +72,7 @@ body{background-color:#f4f7f6;}
                 <ul ng-repeat="x in ::Json" >
                     <li class="ov_cont b_box">
                         <div class="pic_cont"> 
-                            <img src="image2.jpg" class="images" />
+                            <img src="img/image2.jpg" class="images" />
                             <div class="b_white">  
                             <span class="pad" >{{::x.fname + " " + x.lname}}</span><span class="code">{{::x.email}}</span> <p class="pad">Votes-{{::x.vote}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"/></p> 
                             </div>
@@ -85,7 +85,7 @@ body{background-color:#f4f7f6;}
             <div ng-controller="myCtrl2">
                 <ul ng-repeat="x in ::Json" ng-controller="myCtrl2">
                     <li class="ov_cont b_box"><div class="pic_cont">  
-                        <img src="image2.jpg" class="images" />
+                        <img src="img/image2.jpg" class="images" />
                         <div class="b_white"> 
                         <span class="pad" >{{::x.fname + " " + x.lname}}</span><span class="code">{{::x.email}}</span> <p class="pad">Votes-{{::x.vote}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"/></p> </div>
                         </div>
@@ -116,7 +116,8 @@ body{background-color:#f4f7f6;}
         </div>
    </div>
         
-    <script src="myscript.js"></script>
+    <script src="js/myscript.js"></script>
+    <script src="js/angular.js"></script>
 
 </body>
 
