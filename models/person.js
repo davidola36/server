@@ -7,7 +7,8 @@ var personSchema = new schema({
     email: String,
     num: Number,
     votes: { type: Number, default: 0 },
-    img: { data: Buffer, contentType: String }
+    file: Object
+    
 });
 
 

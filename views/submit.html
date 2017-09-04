@@ -1,10 +1,11 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.js"></script>
 
     <style type="text/css">
         body {
@@ -17,17 +18,17 @@
     </style>
 </head>
 
-<body>
+<body ng-controller="myCtrl1">
     <div class="page">
         <div>
             <div> <img src="img/logo.jpg" class="logo1" /></div>
             <div class="nav_bar">
                 <ul>
-                    <li class="nav_con"><a href="photosplash.html" class="clr">Home</a></li>
-                    <li class="nav_con"><a href="aboutus.html" class="clr">About us</a></li>
-                    <li class="nav_con"><a href="gallery.html" class="clr gallery">Gallery</a></li>
-                    <li class="nav_con"><a href="thecompetition.html" class="clr comp">The competition</a></li>
-                    <li class="nav_con"><a href="submit.html" class="clr submit">Submit entry</a></li>
+                    <li class="nav_con"><a href="/photosplash" class="clr">Home</a></li>
+                    <li class="nav_con"><a href="/aboutus" class="clr">About us</a></li>
+                    <li class="nav_con"><a href="/gallery" class="clr gallery">Gallery</a></li>
+                    <li class="nav_con"><a href="/thecompetition" class="clr comp">The competition</a></li>
+                    <li class="nav_con"><a href="/submit" class="clr submit">Submit entry</a></li>
                     <div class="clar"></div>
                 </ul>
             </div>
@@ -36,25 +37,25 @@
 
 
 
-        <form id="myForm" onsubmit="return validateForm();"  enctype="multipart/form-data" method="POST">
+        <form id="myForm" onsubmit="return validateForm();" ng-submit="submit()">
             <ul class="form-style-1">
                 <li>
-                    <label>Full Name <span class="required">*</span></label><input type="text" name="fname" id="fname" class="field-divided"
-                        placeholder="First" />&nbsp;<input type="text" name="lname" class="field-divided" id="lname" placeholder="Last"
-                    />
+                    <label>Full Name <span class="required">*</span></label><input type="text" name="fname" ng-model="form.fname"
+                        class="field-divided" placeholder="First" />&nbsp;<input type="text" name="lname" class="field-divided"
+                        ng-model="form.lname" placeholder="Last" />
                 </li>
                 <li>
                     <label>Email <span class="required">*</span></label>
-                    <input type="email" name="email" id="email" class="field-long" />
+                    <input type="email" name="email" ng-model="form.email" class="field-long" />
                 </li>
                 <li>
                     <label>Phone number <span class="required">*</span></label>
-                    <input type="number" name="num" id="num" class="field-long" />
+                    <input type="number" name="num" ng-model="form.num" class="field-long" />
                 </li>
 
                 <li>
-                    <input type="file" onchange="previewFile()" name="image" /><br>
-                    <img src="" height="200" alt="Image preview..." id="image">
+                    <input type="file" name="file" id="file" ng-model="form.file" ngf-select ngf-max-size="25MB" required /><br>
+                    <!-- <img src="" height="200" alt="Image preview..." id="image"> -->
                 </li>
                 <li>
                     <p id="show"></p>
@@ -84,16 +85,17 @@
                     <div class="clar"></div>
                 </ul>
                 <ul class="bottom_list2">
-                    <li><a href="submit.html" class="b_1 li">Submit entry</a></li>
-                    <li><a href="thecompetition.html" class="b_1 li">The competition</p></li>
-                        <li><a href="gallery.html" class="b_1 li">Gallery</p></li>
+                    <li><a href="/submit" class="b_1 li">Submit entry</a></li>
+                    <li><a href="/thecompetition" class="b_1 li">The competition</p></li>
+                        <li><a href="/gallery" class="b_1 li">Gallery</p></li>
                 </ul>
             </div>
         </div>
       </div>
+      
       <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
       <script src="js/myscript.js"></script>
-
+      <script src="js/app.js"></script>
 </body>
 
 </html>
