@@ -50,10 +50,13 @@ app.use(bodyParser.json());
 
 
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public')); //use to serve static files like favicon, css, angular and the rest
+
+//app.use(express.static(__dirname + '/public')); //use to serve static files like favicon, css, angular and the rest
 
 app.use('/', routes)
 
+//app.use("/public", express.static(path.join(__dirname, 'public')));
+app.use('/uploads',express.static(path.join(__dirname, 'public/uploads')));
 
 app.listen(process.env.PORT || 5000)
 console.log("Server Listening on port ", process.env.PORT || 5000);

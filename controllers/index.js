@@ -5,7 +5,7 @@ var express = require('express'),
 var multer = require('multer')
 
 
-var upload = multer({ dest: 'uploads/' });
+var upload = multer({ dest: 'public/uploads/' });
 
 
 router.get('/api/alluser', function (req, res) {
@@ -16,7 +16,7 @@ router.get('/api/alluser', function (req, res) {
             res.send(err)
         }
         else {
-           console.log(person_obj)
+            console.log(person_obj)
             res.send(person_obj)
         }
     })
@@ -36,7 +36,7 @@ router.get('/api/user/:id', function (req, res) {
     })
 });
 
-router.post('/api/submitdetails',upload.single('file'), function (req, res) {
+router.post('/api/submitdetails', upload.single('file'), function (req, res) {
     // console.log('trying to submit')
     // console.log(req.body)
     // console.log('file is')
@@ -53,10 +53,10 @@ router.post('/api/submitdetails',upload.single('file'), function (req, res) {
             email: personInfo.email,
             num: personInfo.num,
             file: req.file
-            
+
         });
 
-      
+
         newPerson.save(function (err, person_obj) {
             console.log('trying to save')
             if (err) {

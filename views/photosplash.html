@@ -71,8 +71,7 @@
                 <ul ng-repeat="x in users">
                     <li class="ov_cont b_box">
                         <div class="pic_cont">
-                            <a ng-href='{{x.file.path + "/" + x.file.originalname}}'>{{x.file.originalname}}</a>
-                             <!-- <img ng-src={{x.img.data}} class="images" />  -->
+                             <img ng-src='/uploads/{{x.file.filename}}' class="images" /> 
                             <div class="b_white">
                                 <span class="pad">{{x.fname + " " + x.lname}}</span><span class="code">{{x.email}}</span>
                                 <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
@@ -91,11 +90,11 @@
             <ul ng-repeat="x in users">
                 <li class="ov_cont b_box">
                     <div class="pic_cont">
-                        <img src="img/image2.jpg" class="images" />
+                         <img ng-src='/uploads/{{x.file.filename}}' class="images" /> 
                         <div class="b_white">
-                            <span class="pad">{{::x.fname + " " + x.lname}}</span><span class="code">{{::x.email}}</span>
-                            <p class="pad">Votes-{{::x.vote}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
-                                /> </p>
+                            <span class="pad">{{x.fname + " " + x.lname}}</span><span class="code">{{x.email}}</span>
+                            <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
+                              /> </p>
                         </div>
                     </div>
                 </li>
@@ -106,14 +105,14 @@
             <h2 class="clr">Recent Posts</h2>
         </div>
         <div >
-            <ul ng-repeat="x in users" >
+            <ul ng-repeat="x in users">
                 <li class="ov_cont b_box">
                     <div class="pic_cont">
-                        <img src="img/image2.jpg" class="images" />
+                         <img ng-src='/uploads/{{x.file.filename}}' class="images" /> 
                         <div class="b_white">
-                            <span class="pad">{{::x.fname + " " + x.lname}}</span><span class="code">{{::x.email}}</span>
-                            <p class="pad">Votes-{{::x.vote}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
-                                /></p>
+                            <span class="pad">{{x.fname + " " + x.lname}}</span><span class="code">{{x.email}}</span>
+                            <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
+                              /> </p>
                         </div>
                     </div>
                 </li>
