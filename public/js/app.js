@@ -3,9 +3,8 @@ var app = angular.module("myApp", ['ngFileUpload', 'toastr']);
 
 app.controller("myCtrl1", function ($scope, $http, Upload, toastr) {
 
-	var EndPoint = 'http://'+window.location.host;
+	var EndPoint = 'http://' + window.location.host;
 	console.log(EndPoint)
-	
 	$scope.submit = function () {
 
 		Upload.upload({
@@ -15,7 +14,7 @@ app.controller("myCtrl1", function ($scope, $http, Upload, toastr) {
 		}).then(function (resp) {
 			if (resp.data.success == true) {
 				toastr.success('file uploaded, redirecting to the homepage ...', 'Success!');
-				setTimeout(function () { window.location.href = Endpoint + '/photosplash'; }, 3000);
+				setTimeout(function () { window.location.href = '/photosplash'; }, 3000);
 
 			}
 			else {
@@ -35,6 +34,25 @@ app.controller("myCtrl1", function ($scope, $http, Upload, toastr) {
 			})
 
 	})()
+
+	$scope.vote = function (id) {
+		console.log(id);
+
+		$http.post(EndPoint + '/api/vote', {_id:id})
+			.then(function (resp) {
+				if (resp.data.success == true) {
+					// toastr.success('Successfully voted ...', 'Success!');
+					alert('Successfully voted ...');
+					setTimeout(function () { window.location.href =  '/photosplash'; }, 3000);
+
+				}
+				else {
+					alert('submission failed');
+					toastr.error('submission failed', 'Error!');
+				}
+
+			})
+	};
 
 
 

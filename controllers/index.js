@@ -1,13 +1,12 @@
 var express = require('express'),
     router = express.Router(),
-    Person = require('../models/person.js');
+    Person = require('../models/person.js'),
+    multer = require('multer'),
+    upload = multer({ dest: 'public/uploads/' });
 
-var multer = require('multer')
-
-
-var upload = multer({ dest: 'public/uploads/' });
-
-
+/**
+ * get all user saved in the db
+ */
 router.get('/api/alluser', function (req, res) {
     console.log('trying to get all user')
     Person.find({}, function (err, person_obj) {
@@ -22,6 +21,9 @@ router.get('/api/alluser', function (req, res) {
     })
 });
 
+/**
+ * get the information of a user
+ */
 router.get('/api/user/:id', function (req, res) {
     console.log('user id')
     console.log(req.params)
@@ -36,6 +38,10 @@ router.get('/api/user/:id', function (req, res) {
     })
 });
 
+
+/**
+ * submit new user details
+ */
 router.post('/api/submitdetails', upload.single('file'), function (req, res) {
 
     var personInfo = req.body;
@@ -64,6 +70,26 @@ router.post('/api/submitdetails', upload.single('file'), function (req, res) {
             res.send({ success: true, data: person_obj });
         });
     }
+});
+
+router.post('/api/vote', function (req, res) {
+    console.log('lets get the body id');
+    console.log(req.body._id);
+    Person.update({ _id: req.body._id }, { $inc: { votes: 1 } }, function (err, user_obj) {
+        if (err) {
+            console.log(err);
+            res.send({ success: false, data: err })
+        }
+        if (!user_obj) {
+            console.log('user not found');
+            res.send({ success: false, data: ' User not found' })
+        }
+        else {
+            console.log('vote updated');
+            console.log(user_obj);
+            res.send({ success: true, data: user_obj });
+        }
+    });
 });
 
 router.get('/submit', function (req, res) {

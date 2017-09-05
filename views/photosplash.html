@@ -24,7 +24,7 @@
     </style>
 </head>
 
-<body  ng-controller="myCtrl1">
+<body ng-controller="myCtrl1">
     <div class="page">
         <div>
             <div> <img src="img/logo.jpg" class="logo1" /></div>
@@ -68,16 +68,16 @@
             <div class="box_head">
                 <h2 class="clr">Top Posts</h2>
             </div>
-        
-            <div >
+
+            <div>
                 <ul ng-repeat="x in users">
                     <li class="ov_cont b_box">
                         <div class="pic_cont">
-                             <img ng-src='/uploads/{{x.file.filename}}' class="images" /> 
+                            <img ng-src='/uploads/{{x.file.filename}}' class="images" style="width: 30%;height:30%;" />
                             <div class="b_white">
                                 <span class="pad">{{x.fname + " " + x.lname}}</span><span class="code">{{x.email}}</span>
-                                <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
-                                  /> </p>
+                                <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="vote(x._id);"
+                                    /> </p>
                             </div>
                         </div>
                     </li>
@@ -92,11 +92,10 @@
             <ul ng-repeat="x in users">
                 <li class="ov_cont b_box">
                     <div class="pic_cont">
-                         <img ng-src='/uploads/{{x.file.filename}}' class="images" /> 
+                        <img ng-src='/uploads/{{x.file.filename}}' class="images" style="width: 30%;height:30%;" />
                         <div class="b_white">
                             <span class="pad">{{x.fname + " " + x.lname}}</span><span class="code">{{x.email}}</span>
-                            <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
-                              /> </p>
+                            <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="vote(x._id);" /> </p>
                         </div>
                     </div>
                 </li>
@@ -106,15 +105,14 @@
         <div class="box_head">
             <h2 class="clr">Recent Posts</h2>
         </div>
-        <div >
+        <div>
             <ul ng-repeat="x in users">
                 <li class="ov_cont b_box">
                     <div class="pic_cont">
-                         <img ng-src='/uploads/{{x.file.filename}}' class="images" /> 
+                        <img ng-src='/uploads/{{x.file.filename}}' class="images" style="width: 30%;height:30%;" />
                         <div class="b_white">
                             <span class="pad">{{x.fname + " " + x.lname}}</span><span class="code">{{x.email}}</span>
-                            <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="addVote($index); parseInt(x.vote) + 1"
-                              /> </p>
+                            <p class="pad">Votes-{{x.votes}} <input type="button" value="vote" id="button2" ng-click="vote(x._id);" /> </p>
                         </div>
                     </div>
                 </li>
