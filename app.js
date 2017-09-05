@@ -6,16 +6,16 @@ var express = require('express'),
   morgan = require('morgan'),
   cors = require('cors');
 
-// var uristring =
-//   process.env.MONGOLAB_URI ||
-//   process.env.MONGOHQ_URL ||
-//   'mongodb://davidola36:1cancomea@ds061374.mlab.com:61374/sample';
+var uristring =
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://davidola36:1cancomea@ds061374.mlab.com:61374/sample';
 
 
 
 
 
-var uristring = 'mongodb://127.0.0.1:27017/photosplash'
+// var uristring = 'mongodb://127.0.0.1:27017/photosplash'
 
 ////connect to mongodb
 // Makes connection asynchronously.  Mongoose will queue up database
