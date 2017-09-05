@@ -6,6 +6,8 @@
     <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.js"></script>
+    <script src="https://npmcdn.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://npmcdn.com/angular-toastr/dist/angular-toastr.css" />
 
     <style type="text/css">
         body {
@@ -54,8 +56,8 @@
                 </li>
 
                 <li>
-                    <input type="file" name="file" id="file" ng-model="form.file" ngf-select ngf-max-size="25MB" required /><br>
-                    <!-- <img src="" height="200" alt="Image preview..." id="image"> -->
+                    <input type="file" name="file" id="file" onchange="previewFile()" ng-model="form.file" ngf-select ngf-max-size="25MB" required /><br>
+                    <img src="" height="200" alt="Image preview..." id="image">
                 </li>
                 <li>
                     <p id="show"></p>

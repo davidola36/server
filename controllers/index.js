@@ -20,7 +20,7 @@ router.get('/api/alluser', function (req, res) {
             res.send(person_obj)
         }
     })
-})
+});
 
 router.get('/api/user/:id', function (req, res) {
     console.log('user id')
@@ -37,10 +37,7 @@ router.get('/api/user/:id', function (req, res) {
 });
 
 router.post('/api/submitdetails', upload.single('file'), function (req, res) {
-    // console.log('trying to submit')
-    // console.log(req.body)
-    // console.log('file is')
-    // console.log(req.file);
+
     var personInfo = req.body;
     if (!personInfo.lname || !personInfo.fname || !personInfo.num) {
         console.log("all the info has not been filled");
@@ -56,16 +53,15 @@ router.post('/api/submitdetails', upload.single('file'), function (req, res) {
 
         });
 
-
         newPerson.save(function (err, person_obj) {
             console.log('trying to save')
             if (err) {
                 console.log("the file didnt save");
-                res.send({ status: false, message: 'upload failed' })
+                res.send({ success: false, message: 'upload failed' })
             }
 
             console.log('user saved');
-            res.send(person_obj);
+            res.send({ success: true, data: person_obj });
         });
     }
 });
@@ -107,4 +103,3 @@ router.get('/photosplash', function (req, res) {
 
 module.exports = router;
 
-// C:\Users\abimbola\Desktop\frostmedia\server\uploads\4aaf739d9806e6c268730cad40b9a523

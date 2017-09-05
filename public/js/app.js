@@ -1,85 +1,40 @@
 // JavaScript Document
-var app = angular.module("myApp", ['ngFileUpload']);
-// app.controller("myCtrl", function ($scope) {
+var app = angular.module("myApp", ['ngFileUpload', 'toastr']);
 
+app.controller("myCtrl1", function ($scope, $http, Upload, toastr) {
 
-// });
-app.controller("myCtrl1", function ($scope, $http,Upload) {
-
-	var EndPoint = 'http://localhost:5000'
-
-
+	var EndPoint = 'http://'+window.location.host;
+	console.log(EndPoint)
+	
 	$scope.submit = function () {
-		console.log($scope.form)
-		
-
 
 		Upload.upload({
 			url: 'api/submitdetails',
 			method: 'post',
 			data: $scope.form
-		  }).then(function (resp) {
-				console.log('hehe')
-				console.log(resp)
-				//$scope.form.push(resp.data);
-				//$scope.form = {};
-			})
-	
+		}).then(function (resp) {
+			if (resp.data.success == true) {
+				toastr.success('file uploaded, redirecting to the homepage ...', 'Success!');
+				setTimeout(function () { window.location.href = Endpoint + '/photosplash'; }, 3000);
 
+			}
+			else {
+				toastr.error('submission failed', 'Error!');
+			}
 
-		// $http.post(EndPoint + '/api/submitdetails', $scope.form).then(function (resp) {
-		// 	console.log('hehe')
-		// 	console.log(resp)
-		// 	//$scope.form.push(resp.data);
-		// 	//$scope.form = {};
-		// })
+		});
 
-		// var f = document.getElementById('image')
-		// console.log(f.files[0])
-		// var file = document.querySelector('input[type=file]').files[0];
-		// console.log('hehe')
-		// console.log(file)
-
-		// var userdetails = {
-		// 	fname: $scope.form.fname,
-		// 	lname: $scope.form.lname,
-		// 	email: $scope.form.email,
-		// 	num: $scope.form.num
-
-		// }
-
-		// $http.post(EndPoint + '/api/submitdetails', userdetails).then(function (resp) {
-		// 	console.log('hehe')
-		// 	console.log(resp)
-		// })
-
-		
 	}
 
 	$scope.getUser = (function () {
 
-
-
-
-
-
 		$http.get(EndPoint + '/api/alluser')
 			.then(function (resp) {
-
-
 				console.log(resp.data)
 				$scope.users = resp.data;
-
-
 			})
 
-		// myService.showUser().then(function (resp) {
-		// 	//console.log('heheh')
-		// 	$scope.user = response.data;
-
 	})()
-
-
 
 
 
